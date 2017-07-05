@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flippr</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar">gdfg</span>
+            <span class="icon-bar">dfgdf</span>
+            <span class="icon-bar">dfgdf</span>
+          </button>
+          <a class="navbar-brand" href="/">Flippr</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <% if user_signed_in? %>
+            <%= current_user.email %>
+            <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete'%>
+            <%= link_to 'Edit Account', edit_user_registration_path %>
+          <% else %>
+            <div class="navbar-form navbar-right">
+              <%#= bootstrap_form_tag url: session_path(:user) do |f| %>
+                <%#= f.email_field :email, hide_label: true, placeholder: "Email" %>
+                <%#= f.password_field :password, hide_label: true, placeholder: "Password", autocomplete: "off" %>
+                <%#= f.submit "Sign In", :class => 'btn btn-success'%>
+              <%# end %>
+              <%# button_to('Sign Up', new_user_registration_path, :class => 'btn btn-success') %>
+            </div>
+            <ul class="nav navbar-nav">
+              <li>
+                <%= link_to 'Sign In', new_user_session_path %>
+              </li>
+              <li>
+                <%= link_to 'Sign Up', new_user_registration_path %>
+              </li>
+            </ul>
+          <% end %>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Welcome to Flippr!</h1>
+        <p>This is a special place to share images of our most beloved, favorite movie. Welcome to Flippr :).</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div> <!-- /container -->
+      <hr>
+
+      <footer>
+        <p>&copy; 2016 Flippee, Inc.</p>
+      </footer>
+
+
+  </body>
+</html>

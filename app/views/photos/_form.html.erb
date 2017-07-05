@@ -1,0 +1,4 @@
+<%= bootstrap_form_for [current_user, @photo], url: user_photos_path(current_user), html: { multipart: true } do |form| %>
+  <%= form.file_field :attached_photo %>
+  <%= form.submit %>
+<% end %>

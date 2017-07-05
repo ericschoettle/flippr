@@ -1,0 +1,3 @@
+<%= image_tag current_user.photos.find(@photo.id).attached_photo.url(:large) %>
+<br>
+<%= link_to 'Delete Photo', user_photo_path(@photo), data: { confirm: 'Are you certain you want to delete this?', method: :delete } %>

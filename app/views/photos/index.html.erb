@@ -1,0 +1,7 @@
+<div class="row">     
+  <% @photos.each do |photo| %>
+    <div class="col-md-4">
+      <%= link_to (image_tag photo.attached_photo.url(:medium) ), user_photo_path(current_user, photo) %>
+    </div>
+  <% end %>
+</div>
