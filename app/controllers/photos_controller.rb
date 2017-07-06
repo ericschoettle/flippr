@@ -18,7 +18,6 @@ class PhotosController < ApplicationController
   end
 
   def show
-    binding.pry
     @photo = Photo.find(params[:id])
     @photo.avg_rating = Photo.get_avg_rating(@photo)
     @photo.save
