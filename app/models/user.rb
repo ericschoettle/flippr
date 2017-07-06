@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :comments
   has_many :photos
+  has_many :tags
 
   # validates :name, :presence => true
 

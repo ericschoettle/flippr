@@ -1,0 +1,15 @@
+<h4>Tag your friends!!</h4>
+
+<% if @tag.errors.any? %>
+  <h3>Oops there were some errors. Please try again:</h3>
+  <ul>
+    <% @tag.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= bootstrap_form_for @tag, :url => photo_tags_path(@photo) do |f| %>
+  <%= f.collection_check_boxes :user_id, User.all, :id, :email %>
+  <%= f.submit %>
+<% end %>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'tags/_new'
+
   get 'comments/new'
 
   get 'comments/create'
@@ -16,5 +18,7 @@ Rails.application.routes.draw do
 
   resources :photos do
     resources :comments
+    resources :tags
   end
+
 end

@@ -1,5 +1,18 @@
-<div class="row">     
-  <% @five_most_recent.each do |photo| %>
+
+<div class="row"> 
+  <h2>Most Recent</h2>    
+  <% @six_most_recent.each do |photo| %>
+    <div class="col-md-4">
+      <%= link_to (image_tag photo.attached_photo.url(:medium) ), photo_path(photo) %>
+    </div>
+  <% end %>
+</div>
+
+<hr>
+
+<div class="row"> 
+  <h2>Highest Rated</h2>   
+  <% @six_highest_rated.each do |photo| %>
     <div class="col-md-4">
       <%= link_to (image_tag photo.attached_photo.url(:medium) ), photo_path(photo) %>
     </div>
