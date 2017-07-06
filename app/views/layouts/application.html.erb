@@ -12,17 +12,19 @@
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar">gdfg</span>
+            <%#<span class="icon-bar">gdfg</span>
             <span class="icon-bar">dfgdf</span>
-            <span class="icon-bar">dfgdf</span>
+            <span class="icon-bar">dfgdf</span>%>
           </button>
           <a class="navbar-brand" href="/">Flippr</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <% if user_signed_in? %>
-            <%= current_user.email %>
-            <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete'%>
-            <%= link_to 'Edit Account', edit_user_registration_path %>
+            <ul class="nav navbar-nav">
+              <li><%= link_to current_user.email, user_photos_path(current_user) %></li>
+              <li><%= link_to "Sign Out", destroy_user_session_path, :method => 'delete'%></li>
+              <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
+            </ul> 
           <% else %>
             <div class="navbar-form navbar-right">
               <%#= bootstrap_form_tag url: session_path(:user) do |f| %>
@@ -49,7 +51,7 @@
     <div class="jumbotron">
       <div class="container">
         <h1>Welcome to Flippr!</h1>
-        <p>This is a special place to share images of our most beloved, favorite movie. Welcome to Flippr :).</p>
+        <p>This is a special place to share images of our most beloved, beautiful movie. Welcome, friends, to the wonderful world of Flippr :).</p>
       </div>
     </div>
 
