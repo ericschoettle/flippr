@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   def new
-    binding.pry
     @photo = Photo.find(params[:id])
     @comment = current_user.comments.new
   end
@@ -19,6 +18,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content, :user_id, :photo_id)
+    params.require(:comment).permit(:content, :rating, :user_id, :photo_id)
   end
 end

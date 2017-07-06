@@ -1,7 +1,7 @@
 <div class="row">     
   <% @five_most_recent.each do |photo| %>
     <div class="col-md-4">
-      <%= image_tag photo.attached_photo.url(:medium) %>
+      <%= link_to (image_tag photo.attached_photo.url(:medium) ), photo_path(photo) %>
     </div>
   <% end %>
 </div>

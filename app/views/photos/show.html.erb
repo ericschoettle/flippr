@@ -1,10 +1,14 @@
-<%= image_tag current_user.photos.find(@photo.id).attached_photo.url(:large) %>
+<%= image_tag Photo.find(@photo.id).attached_photo.url(:large) %>
 <br>
-<%= link_to 'Delete Photo', user_photo_path(@photo), data: { confirm: 'Are you certain you want to delete this?', method: :delete } %>
-
-<% @photo.comments.each do |comment| %>
-  <p><%= comment.rating %></p>
-  <p><%= comment.content %></p>
+<% if current_user %>
+  <%= link_to 'Delete Photo', user_photo_path(@photo), data: { confirm: 'Are you certain you want to delete this?', method: :delete } %>
 <% end %>
-
-<%= render :partial => 'comments/new' %>
+<br><hr>
+<% @photo.comments.each do |comment| %>
+  <p><b><%= comment.rating %>/5</b> <%= comment.content %> <i><small><%= comment.user.email %></i></small></p>
+  
+<% end %>
+<hr>
+<% if current_user %>
+  <%= render :partial => 'comments/new' %>
+<% end %>
