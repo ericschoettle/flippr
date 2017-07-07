@@ -2,6 +2,7 @@ class PhotosController < ApplicationController
   before_action :authenticate_user!, :except => [:show]
   def index
     @photos = current_user.photos.all 
+    @photo = current_user.photos.new
   end
 
   def new
